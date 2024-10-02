@@ -24,6 +24,9 @@ def submit_cnpj_and_access_link(cnpj):
             print(f'Última cota do mês anterior: {ultima_cota_mes_anterior}')
             print(f'Cota Diaria do mês atual: {ultima_cota_mes_atual}')
 
+            media = media_quotas(ultima_cota_mes_anterior, ultima_cota_mes_atual)
+            print(f'Média de cota diária: {media:.2%}')
+
         finally:
             browser.close()
 
@@ -78,3 +81,9 @@ def capturar_dados_mes(page, mes):
 
     return values_quotas
 
+
+def media_quotas(quota_anterior, quota_diaria):
+    quota_anterior = float(quota_anterior.replace(',', '.'))
+    quota_diaria = float(quota_diaria.replace(',', '.'))
+    media = quota_diaria / quota_anterior - 1
+    return media

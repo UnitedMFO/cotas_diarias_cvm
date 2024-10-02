@@ -1,7 +1,8 @@
 from datetime import date
 
 def data_atual():
-    data_atual = str(date.today()).split('-')
+    # data_atual = str(date.today()).split('-')
+    data_atual = '2024-09-01'.split('-')
     mes_anterior = str(int(data_atual[1]) - 1)
     mes_atual = data_atual[1]
 
